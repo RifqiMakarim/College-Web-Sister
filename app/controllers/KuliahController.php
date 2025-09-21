@@ -25,8 +25,19 @@ class KuliahController
 
     public function index()
     {
-        $stmt = $this->kuliah->readAll();
+        // Ambil nilai filter dari URL (GET request)
+        $filter_nim = $_GET['nim'] ?? null;
+        $filter_nip = $_GET['nip'] ?? null;
+        $filter_kode_matkul = $_GET['kode_matkul'] ?? null;
+
+        // Kirim filter ke model untuk mendapatkan data yang sesuai
+        $stmt = $this->kuliah->readAll($filter_nim, $filter_nip, $filter_kode_matkul);
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Ambil semua data untuk pilihan filter di view
+        $mahasiswa_list = $this->mahasiswa->readAll()->fetchAll(PDO::FETCH_ASSOC);
+        $dosen_list = $this->dosen->readAll()->fetchAll(PDO::FETCH_ASSOC);
+        $matkul_list_all = $this->matkul->readAll()->fetchAll(PDO::FETCH_ASSOC);
 
         require_once __DIR__ . '/../views/kuliah/index.php';
     }
