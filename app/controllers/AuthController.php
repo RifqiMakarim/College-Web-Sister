@@ -22,7 +22,7 @@ class AuthController
             if ($user) {
                 $_SESSION['user'] = $user;
 
-                header("Location: /College-Web-Sister/public/auth/profile");
+                header("Location: /College-Web-Sister/public/home/index");
                 exit;
             } else {
                 $error = "Username atau password salah.";

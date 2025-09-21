@@ -15,16 +15,38 @@ class Kuliah
   }
 
   // Melakukan JOIN untuk mendapatkan nama mahasiswa, dosen, dan mata kuliah
-  public function readAll()
+  public function readAll($nim = null, $nip = null, $kodeMatkul = null)
   {
     $query = "SELECT k.*, m.Nama AS Mahasiswa, d.Nama AS Dosen, mk.NamaMatkul 
             FROM Kuliah k
             LEFT JOIN Mhs m ON k.NIM = m.NIM
             LEFT JOIN Dosen d ON k.NIP = d.NIP
-            LEFT JOIN MataKuliah mk ON k.KodeMatkul = mk.KodeMatkul
-            ORDER BY m.Nama, mk.NamaMatkul";
+            LEFT JOIN MataKuliah mk ON k.KodeMatkul = mk.KodeMatkul";
+
+    $where = [];
+    $params = [];
+
+    if ($nim) {
+      $where[] = "k.NIM = :nim";
+      $params[':nim'] = $nim;
+    }
+    if ($nip) {
+      $where[] = "k.NIP = :nip";
+      $params[':nip'] = $nip;
+    }
+    if ($kodeMatkul) {
+      $where[] = "k.KodeMatkul = :kode_matkul";
+      $params[':kode_matkul'] = $kodeMatkul;
+    }
+
+    if (!empty($where)) {
+      $query .= " WHERE " . implode(" AND ", $where);
+    }
+
+    $query .= " ORDER BY m.Nama, mk.NamaMatkul";
+
     $stmt = $this->conn->prepare($query);
-    $stmt->execute();
+    $stmt->execute($params);
     return $stmt;
   }
 
