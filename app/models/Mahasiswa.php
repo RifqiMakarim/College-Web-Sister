@@ -3,16 +3,13 @@ class Mhs
 {
   private $conn;
   private $table = "Mhs";
-
   public $NIM;
   public $Nama;
   public $Alamat;
-
   public function __construct($db)
   {
     $this->conn = $db;
   }
-
   public function readAll()
   {
     $query = "SELECT * FROM " . $this->table . " ORDER BY NIM";
@@ -20,7 +17,6 @@ class Mhs
     $stmt->execute();
     return $stmt;
   }
-
   public function create()
   {
     $query = "INSERT INTO " . $this->table . " (NIM, Nama, Alamat) VALUES (:NIM, :Nama, :Alamat)";
@@ -30,7 +26,6 @@ class Mhs
     $stmt->bindParam(":Alamat", $this->Alamat);
     return $stmt->execute();
   }
-
   public function readOne()
   {
     $query = "SELECT * FROM " . $this->table . " WHERE NIM = :NIM LIMIT 1";
@@ -39,7 +34,6 @@ class Mhs
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
-
   public function update()
   {
     $query = "UPDATE " . $this->table . " SET Nama=:Nama, Alamat=:Alamat WHERE NIM=:NIM";
@@ -49,7 +43,6 @@ class Mhs
     $stmt->bindParam(":Alamat", $this->Alamat);
     return $stmt->execute();
   }
-
   public function delete()
   {
     $query = "DELETE FROM " . $this->table . " WHERE NIM=:NIM";

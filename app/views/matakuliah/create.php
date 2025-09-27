@@ -9,20 +9,24 @@ include __DIR__ . '/../layout/header.php';
     <form action="/College-Web-Sister/public/matakuliah/store" method="POST">
         <div class="mb-4">
             <label for="kode_matkul" class="block text-gray-700 text-sm font-bold mb-2">Kode Mata Kuliah</label>
-            <input type="text" id="kode_matkul" name="kode_matkul" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <input type="text" id="kode_matkul" name="kode_matkul" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
         </div>
         <div class="mb-4">
             <label for="nama_matkul" class="block text-gray-700 text-sm font-bold mb-2">Nama Mata Kuliah</label>
-            <input type="text" id="nama_matkul" name="nama_matkul" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <input type="text" id="nama_matkul" name="nama_matkul" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
         </div>
         <div class="grid grid-cols-2 gap-4 mb-6">
             <div>
                 <label for="sks" class="block text-gray-700 text-sm font-bold mb-2">SKS</label>
-                <input type="number" id="sks" name="sks" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                <input type="number" id="sks" name="sks" 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
             </div>
             <div>
                 <label for="semester" class="block text-gray-700 text-sm font-bold mb-2">Semester</label>
-                <input type="number" id="semester" name="semester" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                <input type="number" id="semester" name="semester" 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
             </div>
         </div>
         <div class="flex items-center justify-end">
