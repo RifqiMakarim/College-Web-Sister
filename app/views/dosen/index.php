@@ -7,7 +7,8 @@ include __DIR__ . '/../layout/header.php';
 <div class="bg-white p-8 rounded-lg shadow-md">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-800">Data Dosen</h1>
-        <a href="/College-Web-Sister/public/dosen/create" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+        <a href="/College-Web-Sister/public/dosen/create" 
+        class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
             + Tambah Dosen
         </a>
     </div>
@@ -25,16 +26,16 @@ include __DIR__ . '/../layout/header.php';
             <tbody>
                 <?php foreach ($dosen_list as $dosen): ?>
                     <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($dosen['NIP']) ?></td>
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($dosen['Nama']) ?></td>
-                        <td class="py-4 px-6 text-gray-900"><?= htmlspecialchars($dosen['Alamat']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($dosen['nip']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($dosen['nama']) ?></td>
+                        <td class="py-4 px-6 text-gray-900"><?= htmlspecialchars($dosen['alamat']) ?></td>
                         <td class="py-4 px-6">
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
-                                <a href="/College-Web-Sister/public/dosen/edit/<?= $dosen['NIP'] ?>"
+                                <a href="/College-Web-Sister/public/dosen/edit/<?= $dosen['nip'] ?>"
                                     class="w-full sm:w-auto bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center">
                                     Edit
                                 </a>
-                                <a href="/College-Web-Sister/public/dosen/delete/<?= $dosen['NIP'] ?>"
+                                <a href="/College-Web-Sister/public/dosen/delete/<?= $dosen['nip'] ?>"
                                     class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center"
                                     onclick="return confirm('Yakin ingin hapus?')">
                                     Hapus

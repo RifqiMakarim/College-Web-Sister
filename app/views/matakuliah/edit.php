@@ -12,20 +12,24 @@ include __DIR__ . '/../layout/header.php';
 
         <div class="mb-4">
             <label for="kode_matkul_display" class="block text-gray-700 text-sm font-bold mb-2">Kode Mata Kuliah</label>
-            <input type="text" id="kode_matkul_display" value="<?= htmlspecialchars($matkul['KodeMatkul']) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none" readonly>
+            <input type="text" id="kode_matkul_display" value="<?= htmlspecialchars($matkul['KodeMatkul']) ?>" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none" readonly>
         </div>
         <div class="mb-4">
             <label for="nama_matkul" class="block text-gray-700 text-sm font-bold mb-2">Nama Mata Kuliah</label>
-            <input type="text" id="nama_matkul" name="nama_matkul" value="<?= htmlspecialchars($matkul['NamaMatkul']) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <input type="text" id="nama_matkul" name="nama_matkul" value="<?= htmlspecialchars($matkul['NamaMatkul']) ?>" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
         </div>
         <div class="grid grid-cols-2 gap-4 mb-6">
             <div>
                 <label for="sks" class="block text-gray-700 text-sm font-bold mb-2">SKS</label>
-                <input type="number" id="sks" name="sks" value="<?= htmlspecialchars($matkul['SKS']) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                <input type="number" id="sks" name="sks" value="<?= htmlspecialchars($matkul['SKS']) ?>" 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
             </div>
             <div>
                 <label for="semester" class="block text-gray-700 text-sm font-bold mb-2">Semester</label>
-                <input type="number" id="semester" name="semester" value="<?= htmlspecialchars($matkul['Semester']) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                <input type="number" id="semester" name="semester" value="<?= htmlspecialchars($matkul['Semester']) ?>" 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
             </div>
         </div>
         <div class="flex items-center justify-end">

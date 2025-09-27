@@ -3,7 +3,6 @@ class Kuliah
 {
   private $conn;
   private $table = "Kuliah";
-
   public $NIM;
   public $NIP;
   public $KodeMatkul;
@@ -13,8 +12,6 @@ class Kuliah
   {
     $this->conn = $db;
   }
-
-  // Melakukan JOIN untuk mendapatkan nama mahasiswa, dosen, dan mata kuliah
   public function readAll($nim = null, $nip = null, $kodeMatkul = null)
   {
     $query = "SELECT k.*, m.Nama AS Mahasiswa, d.Nama AS Dosen, mk.NamaMatkul 
@@ -22,7 +19,6 @@ class Kuliah
             LEFT JOIN Mhs m ON k.NIM = m.NIM
             LEFT JOIN Dosen d ON k.NIP = d.NIP
             LEFT JOIN MataKuliah mk ON k.KodeMatkul = mk.KodeMatkul";
-
     $where = [];
     $params = [];
 
@@ -38,18 +34,14 @@ class Kuliah
       $where[] = "k.KodeMatkul = :kode_matkul";
       $params[':kode_matkul'] = $kodeMatkul;
     }
-
     if (!empty($where)) {
       $query .= " WHERE " . implode(" AND ", $where);
     }
-
     $query .= " ORDER BY m.Nama, mk.NamaMatkul";
-
     $stmt = $this->conn->prepare($query);
     $stmt->execute($params);
     return $stmt;
   }
-
   public function create()
   {
     $query = "INSERT INTO " . $this->table . " (NIM, NIP, KodeMatkul, Nilai) VALUES (:NIM, :NIP, :KodeMatkul, :Nilai)";
@@ -60,7 +52,6 @@ class Kuliah
     $stmt->bindParam(":Nilai", $this->Nilai);
     return $stmt->execute();
   }
-
   public function readOne()
   {
     $query = "SELECT * FROM " . $this->table . " WHERE NIM=:NIM AND NIP=:NIP AND KodeMatkul=:KodeMatkul LIMIT 1";
@@ -71,7 +62,6 @@ class Kuliah
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
-
   public function update($oldNIM, $oldNIP, $oldKodeMatkul)
   {
     $query = "UPDATE " . $this->table . " 
@@ -79,21 +69,15 @@ class Kuliah
                   WHERE NIM=:oldNIM AND NIP=:oldNIP AND KodeMatkul=:oldKodeMatkul";
 
     $stmt = $this->conn->prepare($query);
-
-    // Data baru
     $stmt->bindParam(":newNIM", $this->NIM);
     $stmt->bindParam(":newNIP", $this->NIP);
     $stmt->bindParam(":newKodeMatkul", $this->KodeMatkul);
     $stmt->bindParam(":Nilai", $this->Nilai);
-
-    // Data lama
     $stmt->bindParam(":oldNIM", $oldNIM);
     $stmt->bindParam(":oldNIP", $oldNIP);
     $stmt->bindParam(":oldKodeMatkul", $oldKodeMatkul);
-
     return $stmt->execute();
   }
-
   public function delete()
   {
     $query = "DELETE FROM " . $this->table . " 

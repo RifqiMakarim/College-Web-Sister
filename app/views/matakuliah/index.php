@@ -28,17 +28,17 @@ include __DIR__ . '/../layout/header.php';
             <tbody>
                 <?php foreach ($matkul_list as $matkul): ?>
                     <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['KodeMatkul']) ?></td>
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['NamaMatkul']) ?></td>
-                        <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($matkul['SKS']) ?></td>
-                        <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($matkul['Semester']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['kodematkul']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['namamatkul']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($matkul['sks']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($matkul['semester']) ?></td>
                         <td class="py-4 px-6">
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
-                                <a href="/College-Web-Sister/public/matakuliah/edit/<?= $matkul['KodeMatkul'] ?>"
+                                <a href="/College-Web-Sister/public/matakuliah/edit/<?= $matkul['kodematkul'] ?>"
                                     class="w-full sm:w-auto bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center">
                                     Edit
                                 </a>
-                                <a href="/College-Web-Sister/public/matakuliah/delete/<?= $matkul['KodeMatkul'] ?>"
+                                <a href="/College-Web-Sister/public/matakuliah/delete/<?= $matkul['kodematkul'] ?>"
                                     class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center"
                                     onclick="return confirm('Yakin ingin hapus?')">
                                     Hapus

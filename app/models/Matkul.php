@@ -3,17 +3,14 @@ class MataKuliah
 {
   private $conn;
   private $table = "MataKuliah";
-
   public $KodeMatkul;
   public $NamaMatkul;
   public $SKS;
   public $Semester;
-
   public function __construct($db)
   {
     $this->conn = $db;
   }
-
   public function readAll()
   {
     $query = "SELECT * FROM " . $this->table . " ORDER BY KodeMatkul";
@@ -21,7 +18,6 @@ class MataKuliah
     $stmt->execute();
     return $stmt;
   }
-
   public function create()
   {
     $query = "INSERT INTO " . $this->table . " (KodeMatkul, NamaMatkul, SKS, Semester) VALUES (:KodeMatkul, :NamaMatkul, :SKS, :Semester)";
@@ -32,7 +28,6 @@ class MataKuliah
     $stmt->bindParam(":Semester", $this->Semester);
     return $stmt->execute();
   }
-
   public function readOne()
   {
     $query = "SELECT * FROM " . $this->table . " WHERE KodeMatkul = :KodeMatkul LIMIT 1";
@@ -41,7 +36,6 @@ class MataKuliah
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
-
   public function update()
   {
     $query = "UPDATE " . $this->table . " SET NamaMatkul=:NamaMatkul, SKS=:SKS, Semester=:Semester WHERE KodeMatkul=:KodeMatkul";
@@ -52,7 +46,6 @@ class MataKuliah
     $stmt->bindParam(":Semester", $this->Semester);
     return $stmt->execute();
   }
-
   public function delete()
   {
     $query = "DELETE FROM " . $this->table . " WHERE KodeMatkul=:KodeMatkul";

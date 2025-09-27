@@ -8,15 +8,18 @@ include __DIR__ . '/../layout/header.php';
     <form action="/College-Web-Sister/public/dosen/store" method="POST">
         <div class="mb-4">
             <label for="nip" class="block text-gray-700 text-sm font-bold mb-2">NIP</label>
-            <input type="text" id="nip" name="nip" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <input type="text" id="nip" name="nip" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
         </div>
         <div class="mb-4">
             <label for="nama" class="block text-gray-700 text-sm font-bold mb-2">Nama Lengkap</label>
-            <input type="text" id="nama" name="nama" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            <input type="text" id="nama" name="nama" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
         </div>
         <div class="mb-6">
             <label for="alamat" class="block text-gray-700 text-sm font-bold mb-2">Alamat</label>
-            <textarea id="alamat" name="alamat" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            <textarea id="alamat" name="alamat" rows="3" 
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
         </div>
         <div class="flex items-center justify-end">
             <a href="/College-Web-Sister/public/dosen" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>

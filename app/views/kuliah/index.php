@@ -23,8 +23,8 @@ $current_kode_matkul = $_GET['kode_matkul'] ?? '';
                 <select name="nim" id="nim" class="w-full p-2 border rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="">Semua Mahasiswa</option>
                     <?php foreach ($mahasiswa_list as $mhs): ?>
-                        <option value="<?= htmlspecialchars($mhs['NIM']) ?>" <?= $current_nim == $mhs['NIM'] ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($mhs['Nama']) ?>
+                        <option value="<?= htmlspecialchars($mhs['nim']) ?>" <?= $current_nim == $mhs['nim'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($mhs['nama']) ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -35,8 +35,8 @@ $current_kode_matkul = $_GET['kode_matkul'] ?? '';
                 <select name="nip" id="nip" class="w-full p-2 border rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="">Semua Dosen</option>
                     <?php foreach ($dosen_list as $dosen): ?>
-                        <option value="<?= htmlspecialchars($dosen['NIP']) ?>" <?= $current_nip == $dosen['NIP'] ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($dosen['Nama']) ?>
+                        <option value="<?= htmlspecialchars($dosen['nip']) ?>" <?= $current_nip == $dosen['nip'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($dosen['nama']) ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -47,8 +47,8 @@ $current_kode_matkul = $_GET['kode_matkul'] ?? '';
                 <select name="kode_matkul" id="kode_matkul" class="w-full p-2 border rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="">Semua Mata Kuliah</option>
                     <?php foreach ($matkul_list_all as $matkul): ?>
-                        <option value="<?= htmlspecialchars($matkul['KodeMatkul']) ?>" <?= $current_kode_matkul == $matkul['KodeMatkul'] ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($matkul['NamaMatkul']) ?>
+                        <option value="<?= htmlspecialchars($matkul['kodematkul']) ?>" <?= $current_kode_matkul == $matkul['kodematkul'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($matkul['namamatkul']) ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -76,17 +76,17 @@ $current_kode_matkul = $_GET['kode_matkul'] ?? '';
                 <?php if (isset($kuliah_list) && count($kuliah_list) > 0): ?>
                     <?php foreach ($kuliah_list as $kuliah): ?>
                         <tr class="bg-white border-b hover:bg-gray-50">
-                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['Mahasiswa']) ?></td>
-                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['Dosen']) ?></td>
-                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['NamaMatkul']) ?></td>
-                            <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($kuliah['Nilai']) ?></td>
+                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['mahasiswa']) ?></td>
+                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['dosen']) ?></td>
+                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['namamatkul']) ?></td>
+                            <td class="py-4 px-6 font-medium text-gray-900 text-center"><?= htmlspecialchars($kuliah['nilai']) ?></td>
                             <td class="py-4 px-6">
                                 <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
-                                    <a href="/College-Web-Sister/public/kuliah/edit/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>"
+                                    <a href="/College-Web-Sister/public/kuliah/edit/<?= $kuliah['nim'] ?>/<?= $kuliah['nip'] ?>/<?= $kuliah['kodematkul'] ?>"
                                         class="w-full sm:w-auto bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center">
                                         Edit
                                     </a>
-                                    <a href="/College-Web-Sister/public/kuliah/delete/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>"
+                                    <a href="/College-Web-Sister/public/kuliah/delete/<?= $kuliah['nim'] ?>/<?= $kuliah['nip'] ?>/<?= $kuliah['kodematkul'] ?>"
                                         class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 text-sm text-center"
                                         onclick="return confirm('Yakin ingin hapus?')">
                                         Hapus
